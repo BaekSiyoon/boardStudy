@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./board.css";
 
 const boardList = () => {
+  const userWriting = () => {
+    window.location.href = "/boardDetail";
+  };
+
   return (
     <div className="div">
-      <button>작성</button>
+      <button onClick={userWriting}>작성</button>
+
       <table>
         <thead>
           <tr>

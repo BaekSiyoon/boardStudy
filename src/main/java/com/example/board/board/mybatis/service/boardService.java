@@ -1,4 +1,5 @@
 package com.example.board.board.mybatis.service;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,11 @@ public class boardService {
     @Autowired
     private boardMapper boardMapper;
 
-     public List<boardVo> list() {
-         return boardMapper.list();
-     }
+    public List<boardVo> list() {
+        System.out.println("service");
+        // boardMapper.list()
+        List<boardVo> list = boardMapper.list();
+        return list;
+    }
 
 }

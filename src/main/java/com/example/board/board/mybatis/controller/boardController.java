@@ -2,6 +2,7 @@ package com.example.board.board.mybatis.controller;
 
 import com.example.board.board.mybatis.service.boardService;
 
+import org.apache.ibatis.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
