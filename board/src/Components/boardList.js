@@ -7,7 +7,7 @@ const boardList = () => {
   };
 
   return (
-    <div className="div">
+    <div className="boardListDiv">
       <button onClick={userWriting}>작성</button>
 
       <table>
