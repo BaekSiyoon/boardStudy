@@ -1,14 +1,17 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "./board.css";
 
+// 상세 페이지
 const boardDetail = () => {
   const [values, setValues] = useState({
     title: "",
-    content: "",
     id: "",
+    content: "",
   });
 
   const handleChange = (e) => {
+    console.log(e);
     setValues({
       ...values,
       [e.target.name]: e.target.value,
@@ -16,9 +19,25 @@ const boardDetail = () => {
   };
 
   const handleSubmit = (e) => {
+    // alert(JSON.stringify(values, null, 2));
     e.preventDefault();
-    alert(JSON.stringify(values, null, 2));
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        setValues: values,
+      }),
+    };
+    console.log(requestOptions);
+    fetch("/list", requestOptions)
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+      });
   };
+
   return (
     <div className="boardDetailDiv">
       <h2>작성 페이지 </h2>
@@ -46,7 +65,9 @@ const boardDetail = () => {
             onChange={handleChange}
           />
           <br />
-          <button type="submit">작성하기</button>
+          <button type="submit" onClick={handleSubmit}>
+            작성하기
+          </button>
         </form>
       </div>
     </div>

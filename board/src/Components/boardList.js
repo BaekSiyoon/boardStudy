@@ -1,6 +1,7 @@
 import React from "react";
 import "./board.css";
 
+// 게시글 목록 페이지
 const boardList = () => {
   const userWriting = () => {
     window.location.href = "/boardDetail";
