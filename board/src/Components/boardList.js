@@ -24,10 +24,10 @@ const boardList = () => {
         <tbody>
           <tr>
             <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
           </tr>
         </tbody>
       </table>
