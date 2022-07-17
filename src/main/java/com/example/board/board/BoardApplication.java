@@ -9,10 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@RestController
 public class BoardApplication {
 
 	public static void main(String[] args) {
@@ -25,13 +23,10 @@ public class BoardApplication {
 	public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
 		final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
 		sessionFactory.setDataSource(dataSource);
-		// PathMatchingResourcePatternResolver resolver = new
-		// PathMatchingResourcePatternResolver();
 		Resource configLocation = (Resource) new PathMatchingResourcePatternResolver()
 				.getResource("classpath:mybatis-config.xml");
 
 		sessionFactory.setConfigLocation((org.springframework.core.io.Resource) configLocation);
-		// sessionFactory.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
 		return sessionFactory.getObject();
 	}
 
