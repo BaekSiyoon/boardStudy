@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import "./board.css";
 
 // 상세 페이지

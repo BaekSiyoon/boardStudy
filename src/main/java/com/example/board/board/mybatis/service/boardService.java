@@ -16,9 +16,7 @@ public class boardService {
 
     public List<boardVo> list() {
         System.out.println("service");
-        // boardMapper.list()
-        List<boardVo> list = boardMapper.list();
-        return list;
+        return boardMapper.list();
     }
 
 }
