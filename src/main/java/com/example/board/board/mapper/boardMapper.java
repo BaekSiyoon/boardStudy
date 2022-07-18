@@ -1,10 +1,11 @@
-package com.example.board.board.mybatis.mapper;
+package com.example.board.board.mapper;
 
 import java.util.List;
 
-import com.example.board.board.mybatis.vo.boardVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
+
+import com.example.board.board.vo.boardVo;
 
 @Repository
 @Mapper

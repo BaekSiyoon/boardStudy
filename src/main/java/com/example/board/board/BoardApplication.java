@@ -19,15 +19,15 @@ public class BoardApplication {
 	}
 
 	// application 실행 파일에 @bean으로 등록 후 mybatis-config.xml 사용
-	@Bean
-	public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
-		final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
-		sessionFactory.setDataSource(dataSource);
-		Resource configLocation = (Resource) new PathMatchingResourcePatternResolver()
-				.getResource("classpath:mybatis-config.xml");
+	// @Bean
+	// public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
+	// 	final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
+	// 	sessionFactory.setDataSource(dataSource);
+	// 	Resource configLocation = (Resource) new PathMatchingResourcePatternResolver()
+	// 			.getResource("classpath:mybatis-config.xml");
 
-		sessionFactory.setConfigLocation((org.springframework.core.io.Resource) configLocation);
-		return sessionFactory.getObject();
-	}
+	// 	sessionFactory.setConfigLocation((org.springframework.core.io.Resource) configLocation);
+	// 	return sessionFactory.getObject();
+	// }
 
 }

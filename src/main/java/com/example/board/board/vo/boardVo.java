@@ -1,4 +1,4 @@
-package com.example.board.board.mybatis.vo;
+package com.example.board.board.vo;
 
 import java.time.LocalDateTime;
 
@@ -6,6 +6,7 @@ public class boardVo {
     private int Seq;
     private String title;
     private String content;
+    private String password;
     private LocalDateTime regDate;
     private String regId;
     private LocalDateTime modDate;
@@ -13,15 +14,15 @@ public class boardVo {
     private String delyn;
 
     public int getSeq() {
-        return Seq;
+        return this.Seq;
     }
 
-    public void setSeq(int seq) {
-        Seq = seq;
+    public void setSeq(int Seq) {
+        this.Seq = Seq;
     }
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String title) {
@@ -29,15 +30,23 @@ public class boardVo {
     }
 
     public String getContent() {
-        return content;
+        return this.content;
     }
 
     public void setContent(String content) {
         this.content = content;
     }
 
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public LocalDateTime getRegDate() {
-        return regDate;
+        return this.regDate;
     }
 
     public void setRegDate(LocalDateTime regDate) {
@@ -45,7 +54,7 @@ public class boardVo {
     }
 
     public String getRegId() {
-        return regId;
+        return this.regId;
     }
 
     public void setRegId(String regId) {
@@ -53,7 +62,7 @@ public class boardVo {
     }
 
     public LocalDateTime getModDate() {
-        return modDate;
+        return this.modDate;
     }
 
     public void setModDate(LocalDateTime modDate) {
@@ -61,7 +70,7 @@ public class boardVo {
     }
 
     public String getModId() {
-        return modId;
+        return this.modId;
     }
 
     public void setModId(String modId) {
@@ -69,10 +78,12 @@ public class boardVo {
     }
 
     public String getDelyn() {
-        return delyn;
+        return this.delyn;
     }
 
     public void setDelyn(String delyn) {
         this.delyn = delyn;
     }
+
+    
 }

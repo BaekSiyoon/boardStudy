@@ -7,6 +7,7 @@ const boardDetail = () => {
   const [values, setValues] = useState({
     title: "",
     id: "",
+    password: "",
     content: "",
   });
 
@@ -20,7 +21,7 @@ const boardDetail = () => {
 
   const handleSubmit = (e) => {
     alert(JSON.stringify(values, null, 2));
-    e.preventDefault();
+    // e.preventDefault();
 
     axios.post('http://localhost:8088/boardDetail/list', (values) ,{
       headers: {
@@ -54,6 +55,13 @@ const boardDetail = () => {
             type="text"
             name="id"
             value={values.id}
+            onChange={handleChange}
+          />
+          <div> 비밀번호 </div>
+          <input
+            type="text"
+            name="password"
+            value={values.password}
             onChange={handleChange}
           />
           <div> 내용 </div>

@@ -1,4 +1,4 @@
-package com.example.board.board.mybatis.controller;
+package com.example.board.board.controller;
 
 import java.util.Map;
 
@@ -10,12 +10,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.board.board.mybatis.service.boardService;
+
+import com.example.board.board.service.boardService;
 
 
-@CrossOrigin(origins = { "http://localhost:8088" })
 @RestController
-@RequestMapping("/boardDetail")
+@CrossOrigin(origins = { "http://localhost:8088" })
+@RequestMapping("/board")
 public class boardController {
     @Autowired
     private boardService boardService;
