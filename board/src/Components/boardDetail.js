@@ -20,13 +20,15 @@ const boardDetail = () => {
   const handleSubmit = (e) => {
     alert(JSON.stringify(values, null, 2));
     e.preventDefault();
-    fetch("http://localhost:8088/boardDetail/list", {
+
+    fetch('/boardDetail/list', {
+      method : "POST",
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Accept: "application/json",
       },
+      body: JSON.stringify(values)
     })
-      .then((res) => res.json())
       .then((res) => {
         console.log(res);
       });
