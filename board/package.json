@@ -5,7 +5,7 @@
   "main": "index.js",
   "homepage": "/",
   "scripts": {
-    "start": "export PORT=8088 && react-scripts start",
+    "start": "export PORT=8088 && react-scripts --max-http-header-size=1024 start",
     "build": "GENERATE_SOURCEMAP=false react-scripts build && cp -R build/* ../src/main/webapp/.",
     "test": "react-scripts test"
   },

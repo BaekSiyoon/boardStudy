@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "./board.css";
 
 // 상세 페이지
@@ -21,17 +22,19 @@ const boardDetail = () => {
     alert(JSON.stringify(values, null, 2));
     e.preventDefault();
 
-    fetch('/boardDetail/list', {
-      method : "POST",
+    axios.post('http://localhost:8088/boardDetail/list', (values) ,{
       headers: {
-        'Content-Type': 'application/json',
-        Accept: "application/json",
-      },
-      body: JSON.stringify(values)
+        'Accept':'application/json',
+        'Content-Type': 'application/json'
+      }
     })
-      .then((res) => {
-        console.log(res);
-      });
+    .then( (response) =>{
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
   };
 
   return (

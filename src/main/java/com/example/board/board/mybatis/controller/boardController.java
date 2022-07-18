@@ -7,11 +7,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.example.board.board.mybatis.service.boardService;
+
 
 @CrossOrigin(origins = { "http://localhost:8088" })
 @RestController
@@ -21,9 +21,9 @@ public class boardController {
     private boardService boardService;
 
     @PostMapping("/list")
-    public ResponseEntity<?> list(@RequestParam Map<String, String> values){
+    public ResponseEntity<?> list(@RequestBody Map<String,Object> values){
         System.out.println("컨트롤러 list ");
-        System.out.println(values);
+        System.out.println(values.get("title"));
         return ResponseEntity.ok().body(boardService.list());
     }
 
