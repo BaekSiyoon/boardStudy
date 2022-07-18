@@ -23,19 +23,19 @@ const boardDetail = () => {
     alert(JSON.stringify(values, null, 2));
     // e.preventDefault();
 
-    axios.post('http://localhost:8088/boardDetail/list', (values) ,{
-      headers: {
-        'Accept':'application/json',
-        'Content-Type': 'application/json'
-      }
-    })
-    .then( (response) =>{
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-
+    axios
+      .post("http://localhost:8088/board/list", values, {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (

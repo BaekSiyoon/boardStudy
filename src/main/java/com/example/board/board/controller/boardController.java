@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.board.board.service.boardService;
 
-
 @RestController
 @CrossOrigin(origins = { "http://localhost:8088" })
 @RequestMapping("/board")
@@ -22,7 +21,7 @@ public class boardController {
     private boardService boardService;
 
     @PostMapping("/list")
-    public ResponseEntity<?> list(@RequestBody Map<String,Object> values){
+    public ResponseEntity<?> list(@RequestBody Map<String, Object> values) {
         System.out.println("컨트롤러 list ");
         System.out.println(values.get("title"));
         return ResponseEntity.ok().body(boardService.list());
