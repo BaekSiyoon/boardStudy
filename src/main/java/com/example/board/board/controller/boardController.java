@@ -32,9 +32,11 @@ public class boardController {
         System.out.println("컨트롤러 insertList");
         Map<String, Object> insertParam = new HashMap<>(); 
         insertParam.put("title", "제목 test1"); 
+        System.out.println(insertParam.get("title"));
         insertParam.put("regId", "아이디 test1");
         insertParam.put("password", "비번 test1");
         insertParam.put("content", "내용 test1");
+        boardService.insertList(insertParam);
     }
 
     // 상세 게시글 조회
@@ -48,11 +50,13 @@ public class boardController {
     // 게시글 수정
     @GetMapping("/updateList")
     public void updateList() {
+        HashMap<String, Object> updateParam = new HashMap<>();
         System.out.println("컨트롤러 updateList");
-        Map<String, Object> updateParam = new HashMap<>(); 
-        updateParam.put("seq", 11);
-        updateParam.put("title", "제목 수정"); 
-        updateParam.put("content", "내용 수정");
-        updateParam.put("modId", "아이디 수정");
+        updateParam.put("seq",11);
+        System.out.println(updateParam.get("seq"));
+        updateParam.put("title","제목 수정"); 
+        updateParam.put("content","내용 수정");
+        updateParam.put("modId","아이디 수정");
+        boardService.updateList(updateParam);
     }
 }

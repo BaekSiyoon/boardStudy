@@ -14,19 +14,23 @@ public class boardService {
     
     // 게시글 조회
     public List<boardVo> list() {
+        System.out.println("service list");
         return boardMapper.list();
     }
     
     // 게시글 작성
     public void insertList(Map<String, Object> insertParam) {
+        System.out.println("insertList service" + insertParam.get("title"));
     }
 
     // 상세 게시글 조회
     public List<boardVo> detailList(int seq) {
+        System.out.println("detailList service");
         return boardMapper.detailList(seq);
     }
 
     // 게시글 수정
     public void updateList(Map<String, Object> updateParam) {
+        System.out.println("updateList service" + updateParam.get("seq"));
     }
 }
