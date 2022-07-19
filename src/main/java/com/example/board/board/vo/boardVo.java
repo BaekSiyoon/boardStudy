@@ -3,7 +3,7 @@ package com.example.board.board.vo;
 import java.time.LocalDateTime;
 
 public class boardVo {
-    private int Seq;
+    private int seq;
     private String title;
     private String content;
     private String password;
@@ -14,11 +14,11 @@ public class boardVo {
     private String delyn;
 
     public int getSeq() {
-        return this.Seq;
+        return this.seq;
     }
 
-    public void setSeq(int Seq) {
-        this.Seq = Seq;
+    public void setSeq(int seq) {
+        this.seq = seq;
     }
 
     public String getTitle() {
@@ -83,7 +83,5 @@ public class boardVo {
 
     public void setDelyn(String delyn) {
         this.delyn = delyn;
-    }
-
-    
+    }    
 }
