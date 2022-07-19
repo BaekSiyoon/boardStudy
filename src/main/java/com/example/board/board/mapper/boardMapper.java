@@ -14,8 +14,11 @@ public interface boardMapper {
   public List<boardVo> list();
 
   // 게시글 작성
-  public void insert(Map<String, Object> insertParam);
+  public void insertList(Map<String, Object> insertParam);
 
   // 상세 게시글 조회
   public List<boardVo> detailList(int seq);
+
+  // 게시글 수정
+  public void updateList(Map<String, Object> updateParam);
 }
