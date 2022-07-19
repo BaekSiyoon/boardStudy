@@ -1,15 +1,12 @@
 package com.example.board.board.vo;
-
-import java.time.LocalDateTime;
-
 public class boardVo {
     private int seq;
     private String title;
     private String content;
     private String password;
-    private LocalDateTime regDate;
+    private String regDate;
     private String regId;
-    private LocalDateTime modDate;
+    private String modDate;
     private String modId;
     private String delyn;
 
@@ -45,11 +42,11 @@ public class boardVo {
         this.password = password;
     }
 
-    public LocalDateTime getRegDate() {
+    public String getRegDate() {
         return this.regDate;
     }
 
-    public void setRegDate(LocalDateTime regDate) {
+    public void setRegDate(String regDate) {
         this.regDate = regDate;
     }
 
@@ -61,11 +58,11 @@ public class boardVo {
         this.regId = regId;
     }
 
-    public LocalDateTime getModDate() {
+    public String getModDate() {
         return this.modDate;
     }
 
-    public void setModDate(LocalDateTime modDate) {
+    public void setModDate(String modDate) {
         this.modDate = modDate;
     }
 
