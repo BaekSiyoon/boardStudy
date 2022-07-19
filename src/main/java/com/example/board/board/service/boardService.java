@@ -21,6 +21,7 @@ public class boardService {
     // 게시글 작성
     public void insertList(Map<String, Object> insertParam) {
         System.out.println("insertList service" + insertParam.get("title"));
+        boardMapper.insertList(insertParam);
     }
 
     // 상세 게시글 조회
@@ -32,5 +33,6 @@ public class boardService {
     // 게시글 수정
     public void updateList(Map<String, Object> updateParam) {
         System.out.println("updateList service" + updateParam.get("seq"));
+        boardMapper.updateList(updateParam);
     }
 }
