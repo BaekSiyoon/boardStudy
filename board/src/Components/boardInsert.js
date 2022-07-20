@@ -19,6 +19,7 @@ const boardInsert = () => {
     });
   };
 
+  // 게시글 작성 클릭시
   const handleSubmit = (e) => {
     alert(JSON.stringify(values, null, 2));
     // e.preventDefault();

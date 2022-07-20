@@ -13,8 +13,9 @@ import com.example.board.board.vo.boardVo;
 
 @RestController
 // @CrossOrigin("*")
-// 무한으로 호출 되는거 수정 해야함
-@CrossOrigin("http://localhost:3000")
+// @CrossOrigin("http://localhost:3000")
+// 무한 실행 되는거 수정 하기
+@CrossOrigin(origins = { "http://localhost:3000" })
 @RequestMapping("/board")
 public class boardController {
 

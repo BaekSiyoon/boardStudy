@@ -21,7 +21,7 @@ const boardList = () => {
     window.location.href = "/boardDetail";
   };
 
-  // useEffect는 첫번째 인자로 callBack함수를 받습니다.
+  // useEffect는 첫번째 인자로 callBack함수를 받는다.
   useEffect(() => {
     // 컴포넌트가 업데이트 되고 axios 실행
     axios
