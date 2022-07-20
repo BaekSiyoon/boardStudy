@@ -24,7 +24,7 @@ const boardDetail = () => {
     // e.preventDefault();
 
     axios
-      .post("http://localhost:8088/board/list", values, {
+      .post("http://localhost:8088/board/insertList", values, {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",

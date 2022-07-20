@@ -6,15 +6,16 @@
   "homepage": "/",
   "scripts": {
     "start": "export PORT=8088 && react-scripts --max-http-header-size=1024 start",
-    "build": "GENERATE_SOURCEMAP=false react-scripts build && cp -R build/* ../src/main/webapp/.",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "private": true,
-  "proxy" : "http://localhost:8088",
+  "proxy": "http://localhost:8088",
   "dependencies": {
+    "http-proxy-middleware": "^2.0.6",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
