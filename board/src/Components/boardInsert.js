@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./board.css";
 
-// 상세 페이지
-const boardDetail = () => {
+// 작성 페이지
+const boardInsert = () => {
   const [values, setValues] = useState({
     title: "",
     id: "",
@@ -22,9 +22,8 @@ const boardDetail = () => {
   const handleSubmit = (e) => {
     alert(JSON.stringify(values, null, 2));
     // e.preventDefault();
-
     axios
-      .post("http://localhost:8088/board/insertList", values, {
+      .Get("/board/insertList", values, {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
@@ -39,7 +38,7 @@ const boardDetail = () => {
   };
 
   return (
-    <div className="boardDetailDiv">
+    <div className="boardInsertDiv">
       <h2>작성 페이지 </h2>
       <div>
         <form>
@@ -81,4 +80,4 @@ const boardDetail = () => {
   );
 };
 
-export default boardDetail;
+export default boardInsert;

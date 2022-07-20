@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import BoardList from "./Components/boardList";
-import BoardDetail from "./Components/boardDetail";
+import BoardInsert from "./Components/boardInsert";
 
 const App = () => {
   return (
@@ -9,7 +9,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<BoardList />} />
-          <Route path="/boardDetail" element={<BoardDetail />} />
+          <Route path="/boardInsert" element={<BoardInsert />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./board.css";
 
 // 게시글 목록 페이지
@@ -10,9 +11,9 @@ const boardList = () => {
     regDate: "",
   });
 
-  // 작성 클릭시 페이지 이동
+  // 클릭시 작성 페이지로 이동
   const userWriting = () => {
-    window.location.href = "/boardDetail";
+    window.location.href = "/boardInsert";
   };
 
   // useEffect는 첫번째 인자로 callBack함수를 받습니다.
@@ -47,15 +48,6 @@ const boardList = () => {
             <th scope="col">날짜</th>
           </tr>
         </thead>
-        <tbody>
-          {values.items.map((values) => (
-            <tr key={values.title}>
-              <td> {values.id} </td>
-              <td> {values.content} </td>
-              <td> {values.regDate} </td>
-            </tr>
-          ))}
-        </tbody>
       </table>
     </div>
   );
