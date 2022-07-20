@@ -12,7 +12,9 @@ import com.example.board.board.service.boardService;
 import com.example.board.board.vo.boardVo;
 
 @RestController
-@CrossOrigin(origins = { "http://localhost:8088" })
+// @CrossOrigin("*")
+// 무한으로 호출 되는거 수정 해야함
+@CrossOrigin("http://localhost:3000")
 @RequestMapping("/board")
 public class boardController {
 

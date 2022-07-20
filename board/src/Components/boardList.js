@@ -16,6 +16,11 @@ const boardList = () => {
     window.location.href = "/boardInsert";
   };
 
+  // 클릭시 게시글 상세 페이지로 이동 (파라미터 던져줘야함)
+  const userDetailClick = () => {
+    window.location.href = "/boardDetail";
+  };
+
   // useEffect는 첫번째 인자로 callBack함수를 받습니다.
   useEffect(() => {
     // 컴포넌트가 업데이트 되고 axios 실행
@@ -29,6 +34,7 @@ const boardList = () => {
       .then((res) => {
         setValues(res.data);
         console.log(res.data);
+        console.log("values" + values);
       })
       .catch((error) => {
         console.log(error);
@@ -48,6 +54,17 @@ const boardList = () => {
             <th scope="col">날짜</th>
           </tr>
         </thead>
+        <tbody onClick={userDetailClick}>
+          {Object.values(values).map((v, i) => (
+            <tr key={i}>
+              <td> {v.seq} </td>
+              <td> {v.title} </td>
+              <td> {v.content} </td>
+              <td> {v.regId} </td>
+              <td> {v.regDate} </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   );
