@@ -47,9 +47,8 @@ public class boardController {
     }
 
     // 상세 게시글 조회
-    @GetMapping("/detailList/{seq}")
-    public List<boardVo> detailList(@RequestParam String seq) {
-        // System.out.println("컨트롤러 detailList");
+    @PostMapping("/detailList/{seq}")
+    public List<boardVo> detailList(@RequestBody String seq) {
         System.out.println("컨트롤러 detailList" + seq);
         return boardService.detailList(seq);
     }
