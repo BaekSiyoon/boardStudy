@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.board.board.service.boardService;
 import com.example.board.board.vo.boardVo;
@@ -46,10 +47,10 @@ public class boardController {
     }
 
     // 상세 게시글 조회
-    @GetMapping("/detailList")
-    public List<boardVo> detailList() {
-        System.out.println("컨트롤러 detailList");
-        int seq = 6;
+    @GetMapping("/detailList/{seq}")
+    public List<boardVo> detailList(@RequestParam String seq) {
+        // System.out.println("컨트롤러 detailList");
+        System.out.println("컨트롤러 detailList" + seq);
         return boardService.detailList(seq);
     }
 

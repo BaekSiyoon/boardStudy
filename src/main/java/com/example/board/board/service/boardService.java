@@ -25,7 +25,7 @@ public class boardService {
     }
 
     // 상세 게시글 조회
-    public List<boardVo> detailList(int seq) {
+    public List<boardVo> detailList(String seq) {
         System.out.println("detailList service");
         return boardMapper.detailList(seq);
     }

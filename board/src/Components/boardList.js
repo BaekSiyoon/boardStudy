@@ -17,10 +17,9 @@ const boardList = () => {
   };
 
   // 클릭시 게시글 상세 페이지로 이동
-  const userDetailClick = (e) => {
-   //window.location.href = "/boardDetail"; 
-    console.log(e.nativeEvent.path[1]);
-    // console.log(e.nativeEvent.path);
+  const userDetailClick = (seq, e) => {
+   window.location.href = `/boardDetail/${seq}`; 
+   console.log(`/boardDetail${seq}`);
   };
 
   // useEffect는 첫번째 인자로 callBack함수를 받는다.
@@ -57,7 +56,7 @@ const boardList = () => {
         </thead>
         <tbody>
           {Object.values(values).map((v, i) => (
-            <tr key={i} value={v.seq} onClick={userDetailClick}>
+            <tr key={i} value={v.seq} onClick={(e)=>{userDetailClick(v.seq, e)}}>
               <td> {v.seq} </td>
               <td> {v.title} </td>
               <td> {v.content} </td>

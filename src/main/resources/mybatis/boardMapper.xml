@@ -8,7 +8,7 @@
     FROM 
       boardList
     ORDER BY 
-      regDate DESC LIMIT 0,5
+      regDate DESC
   </select>
 
   <insert id="insertList"> 
