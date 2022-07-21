@@ -11,13 +11,13 @@ import com.example.board.board.vo.boardVo;
 public class boardService {
     @Autowired
     public boardMapper boardMapper;
-    
+
     // 게시글 조회
     public List<boardVo> list() {
         System.out.println("service list");
         return boardMapper.list();
     }
-    
+
     // 게시글 작성
     public void insertList(Map<String, Object> insertParam) {
         System.out.println("insertList service" + insertParam.get("title"));

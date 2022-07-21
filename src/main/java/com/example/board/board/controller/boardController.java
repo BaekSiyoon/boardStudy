@@ -3,18 +3,20 @@ package com.example.board.board.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.board.board.service.boardService;
 import com.example.board.board.vo.boardVo;
 
 @RestController
-// @CrossOrigin("*")
-// @CrossOrigin("http://localhost:3000")
-// 무한 실행 되는거 수정 하기
 @CrossOrigin(origins = { "http://localhost:3000" })
 @RequestMapping("/board")
 public class boardController {
@@ -30,16 +32,20 @@ public class boardController {
     }
 
     // 게시글 작성
-    @GetMapping("/insertList")
-    public void insertList() {
-        System.out.println("컨트롤러 insertList");
+    @PostMapping("/insertList")
+    public boardVo insertList(@RequestBody Map<String, Object> req) {
+        // url 파라미터 가져오기
         Map<String, Object> insertParam = new HashMap<>();
-        insertParam.put("title", "제목 test1");
-        System.out.println(insertParam.get("title"));
-        insertParam.put("regId", "아이디 test1");
-        insertParam.put("password", "비번 test1");
-        insertParam.put("content", "내용 test1");
+        System.out.println("컨트롤러 insertList");
+        insertParam.put("title", req.get("title"));
+        insertParam.put("regId", req.get("id"));
+        insertParam.put("password", req.get("password"));
+        insertParam.put("content", req.get("content"));
+        System.out.println(req);
+        System.out.println(req.get("id"));
+        System.out.println(req.get("title"));
         boardService.insertList(insertParam);
+        return null;
     }
 
     // 상세 게시글 조회

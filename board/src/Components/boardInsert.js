@@ -24,7 +24,7 @@ const boardInsert = () => {
     alert(JSON.stringify(values, null, 2));
     // e.preventDefault();
     axios
-      .Get("/board/insertList", values, {
+      .post("http://localhost:8088/board/insertList", values, {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",

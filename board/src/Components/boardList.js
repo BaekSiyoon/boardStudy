@@ -39,7 +39,7 @@ const boardList = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [values]);
+  }, []);
 
   return (
     <div className="boardListDiv">
