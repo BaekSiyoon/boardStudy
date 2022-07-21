@@ -42,7 +42,7 @@ const boardDetail = ({match}) => {
   }
 
   return (
-    <div>
+    <div className="boardDetailDiv">
       <h1>boardDetail {match.params.seq}</h1>
       <table>
       <thead>

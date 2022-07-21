@@ -1,4 +1,4 @@
-.boardListDiv, .boardInsertDiv{
+.boardListDiv, .boardInsertDiv, .boardUpdateDiv, .boardDetailDiv{
     text-align: center;
 }
 button{
