@@ -19,7 +19,7 @@ const boardInsert = () => {
     });
   };
 
-  // 게시글 작성 클릭시
+// 게시글 작성 클릭시
   const handleSubmit = (e) => {
     alert(JSON.stringify(values, null, 2));
     // e.preventDefault();
@@ -38,7 +38,10 @@ const boardInsert = () => {
         console.log(error);
       });
   };
-
+// 게시글 목록 페이지로 이동
+  const boardListPage = () =>{
+    window.location.href = "/boardList";
+  }
   return (
     <div className="boardInsertDiv">
       <h2>작성 페이지 </h2>
@@ -77,6 +80,9 @@ const boardInsert = () => {
             작성하기
           </button>
         </form>
+          <button onClick={boardListPage}>
+            목록
+          </button>
       </div>
     </div>
   );
