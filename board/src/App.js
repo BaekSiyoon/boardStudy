@@ -12,7 +12,7 @@ const App = () => {
           <Route path="/boardList"  component={BoardList} />
           <Route path="/boardInsert" component={BoardInsert} />
           <Route path="/boardDetail/:seq" component={BoardDetail} />
-          <Route path="/boardUpdate" component={BoardUpdate} />
+          <Route path="/boardUpdate/:seq" component={BoardUpdate} />
       </BrowserRouter>
     </div>
   );

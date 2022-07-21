@@ -2,7 +2,40 @@ import React from "react";
 import "./board.css";
 
 // 게시글 수정 페이지
-const boardUpdate = () => {
+const boardUpdate = ({match}) => {
+  console.log(match);
+
+  const [boardValues, setBoardValues] = useState({
+    seq: "",
+    title: "",
+    id: "",
+    content: "",
+    regDate: "",
+  });
+
+  useEffect(() => {
+    axios
+      .post(`http://localhost:8088/board/updateList/${match.params.seq}`, match.params.seq, {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      })
+      .then((res) => {
+        setBoardValues(res.data);
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+
+// 게시글 목록 페이지로 이동
+const boardListPage = () => {
+  window.location.href = "/boardList";
+}
+
   return (
     <div className="boardUpdateDiv">
       <h1>수정 페이지</h1>
@@ -41,9 +74,9 @@ const boardUpdate = () => {
             작성하기
           </button>
         </form>
-          <button>
+        <button onClick={boardListPage}>
             목록
-          </button>
+        </button>
       </div>
     </div>
   );

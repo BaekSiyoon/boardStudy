@@ -38,7 +38,8 @@ const boardDetail = ({match}) => {
 
   // 게시글 수정 페이지로 이동
   const boardUpdatePage = () => {
-    window.location.href = "/boardUpdate";
+    console.log("수정 페이지 클릭");
+    window.location.href = `/boardUpdate/${match.params.seq}`;
   }
 
   return (
