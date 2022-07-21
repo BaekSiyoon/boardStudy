@@ -20,7 +20,7 @@ public class boardService {
 
     // 게시글 작성
     public void insertList(Map<String, Object> insertParam) {
-        System.out.println("insertList service" + insertParam.get("title"));
+        System.out.println("insertList service");
         boardMapper.insertList(insertParam);
     }
 

@@ -33,7 +33,7 @@ public class boardController {
 
     // 게시글 작성
     @PostMapping("/insertList")
-    public boardVo insertList(@RequestBody Map<String, Object> req) {
+    public void insertList(@RequestBody Map<String, Object> req) {
         // url 파라미터 가져오기
         Map<String, Object> insertParam = new HashMap<>();
         System.out.println("컨트롤러 insertList");
@@ -43,9 +43,6 @@ public class boardController {
         insertParam.put("content", req.get("content"));
         System.out.println(req);
         System.out.println(req.get("id"));
-        System.out.println(req.get("title"));
-        boardService.insertList(insertParam);
-        return null;
     }
 
     // 상세 게시글 조회

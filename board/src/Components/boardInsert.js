@@ -31,6 +31,7 @@ const boardInsert = () => {
         },
       })
       .then((response) => {
+        alert("게시글 작성 성공");
         console.log(response);
       })
       .catch((error) => {
