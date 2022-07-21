@@ -20,8 +20,8 @@ const boardInsert = () => {
   };
 
 // 게시글 작성 클릭시
-  const handleSubmit = (e) => {
-    alert(JSON.stringify(values, null, 2));
+const handleSubmit = (e) => {
+  alert(JSON.stringify(values, null, 2));
     // e.preventDefault();
     axios
       .post("http://localhost:8088/board/insertList", values, {
@@ -39,9 +39,10 @@ const boardInsert = () => {
       });
   };
 // 게시글 목록 페이지로 이동
-  const boardListPage = () =>{
+  const boardListPage = () => {
     window.location.href = "/boardList";
   }
+  
   return (
     <div className="boardInsertDiv">
       <h2>작성 페이지 </h2>

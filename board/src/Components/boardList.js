@@ -16,9 +16,11 @@ const boardList = () => {
     window.location.href = "/boardInsert";
   };
 
-  // 클릭시 게시글 상세 페이지로 이동 (파라미터 던져줘야함)
-  const userDetailClick = () => {
-    window.location.href = "/boardDetail";
+  // 클릭시 게시글 상세 페이지로 이동
+  const userDetailClick = (e) => {
+   //window.location.href = "/boardDetail"; 
+    console.log(e.nativeEvent.path[1]);
+    // console.log(e.nativeEvent.path);
   };
 
   // useEffect는 첫번째 인자로 callBack함수를 받는다.
@@ -34,7 +36,6 @@ const boardList = () => {
       .then((res) => {
         setValues(res.data);
         console.log(res.data);
-        console.log("values" + values);
       })
       .catch((error) => {
         console.log(error);
@@ -54,9 +55,9 @@ const boardList = () => {
             <th scope="col">날짜</th>
           </tr>
         </thead>
-        <tbody onClick={userDetailClick}>
+        <tbody>
           {Object.values(values).map((v, i) => (
-            <tr key={i}>
+            <tr key={i} value={v.seq} onClick={userDetailClick}>
               <td> {v.seq} </td>
               <td> {v.title} </td>
               <td> {v.content} </td>
