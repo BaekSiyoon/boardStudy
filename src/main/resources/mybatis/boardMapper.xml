@@ -27,20 +27,11 @@
       seq = #{seq}
   </select>
 
-  <select id="beforeList" resultType="boardVo">
-    SELECT
-      seq, title, content, regId, regDate
-    FROM
-      boardList
-    WHERE
-      seq = #{seq}
-  </select>
-
-  <update id="updateList" parameterType="hashmap">
+  <update id="updateList">
     UPDATE 
       boardList
     SET 
-      title = #{title}, content = #{content}, modId = #{modId}, modDate = NOW()
+      title = #{title}, content = #{content}, modId = #{regId}, modDate = NOW()
     WHERE 
       seq = #{seq}
   </update>

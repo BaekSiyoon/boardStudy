@@ -9,7 +9,7 @@ const boardDetail = ({match}) => {
   const [detailValues, setDetailValues] = useState({
     seq: "",
     title: "",
-    id: "",
+    regId: "",
     content: "",
     regDate: "",
   });

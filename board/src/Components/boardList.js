@@ -6,7 +6,7 @@ import "./board.css";
 const boardList = () => {
   const [values, setValues] = useState({
     title: "",
-    id: "",
+    regId: "",
     content: "",
     regDate: "",
   });

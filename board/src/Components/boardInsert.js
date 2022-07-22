@@ -6,7 +6,7 @@ import "./board.css";
 const boardInsert = () => {
   const [values, setValues] = useState({
     title: "",
-    id: "",
+    regId: "",
     password: "",
     content: "",
   });
@@ -58,8 +58,8 @@ const handleSubmit = (e) => {
           <div> 작성자 </div>
           <input
             type="text"
-            name="id"
-            value={values.id}
+            name="regId"
+            value={values.regId}
             onChange={handleChange}
           />
           <div> 비밀번호 </div>

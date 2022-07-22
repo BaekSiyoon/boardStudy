@@ -11,12 +11,12 @@ const boardUpdate = ({match}) => {
     title: "",
     regId: "",
     content: "",
-    regDate: "",
   });
   
+  // 처음 수정페이지 들어왔을때
   useEffect(() => {
     axios
-      .post(`http://localhost:8088/board/updateList/${match.params.seq}`, match.params.seq, {
+      .post(`http://localhost:8088/board/detailList/${match.params.seq}`, match.params.seq, {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
@@ -34,21 +34,36 @@ const boardUpdate = ({match}) => {
     
     // 게시글 data 수정 
     const handleChange = (e) => {
-      console.log(e);
-      console.log("e" + e);
-      console.log("e.target.name" + e.target.name);
-      console.log("e.target.value" + e.target.value);
       setBoardValues({
         ...boardValues,
         [e.target.name]: e.target.value,
       });
     };
   
+    // 게시글 목록 페이지로 이동
+    const boardListPage = () => {
+      window.location.href = "/boardList";
+    }
 
-  // 게시글 목록 페이지로 이동
-  const boardListPage = () => {
-    window.location.href = "/boardList";
-  }
+    // 게시글 수정하기 클릭 
+    const boardUpdateList = (e) => {
+      console.log("alert" + JSON.stringify(boardValues, null, 2));
+        // e.preventDefault();
+        axios
+          .post("http://localhost:8088/board/updateList", boardValues, {
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+          })
+          .then((response) => {
+            alert("게시글 수정 성공");
+            console.log(response);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      };
 
 return (
   <div className="boardUpdateDiv">
@@ -77,17 +92,10 @@ return (
               value={boardValues.content  || ""}
               onChange={(e) => {handleChange(e)}}
               />
-              <div> 날짜 </div>
-              <input
-              type="text"
-              name="regDate"
-              value={boardValues.regDate  || ""}
-              readonly
-              />
               </div>
         <br />
-          <button type="submit">
-            작성하기
+          <button type="submit" onClick={boardUpdateList}>
+            수정하기
           </button>
         </form>
           <button onClick={boardListPage}>

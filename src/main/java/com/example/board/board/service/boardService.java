@@ -30,15 +30,15 @@ public class boardService {
         return boardMapper.detailList(seq);
     }
 
-    // 게시글 수정 전 상세 내용
-    public List<boardVo> beforeList(String seq) {
-        System.out.println("beforeList service");
-        return boardMapper.beforeList(seq);
-    }
+    // // 게시글 수정 전 상세 내용
+    // public List<boardVo> beforeList(String seq) {
+    // System.out.println("beforeList service");
+    // return boardMapper.beforeList(seq);
+    // }
 
     // 게시글 수정
     public void updateList(Map<String, Object> updateParam) {
-        System.out.println("updateList service" + updateParam.get("seq"));
+        System.out.println("updateList service");
         boardMapper.updateList(updateParam);
     }
 
