@@ -58,6 +58,7 @@ const boardUpdate = ({match}) => {
           })
           .then((response) => {
             alert("게시글 수정 성공");
+            window.location.href = "http://localhost:3000/boardList";
             console.log(response);
           })
           .catch((error) => {

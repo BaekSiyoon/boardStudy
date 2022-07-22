@@ -57,10 +57,10 @@ public class boardController {
         Map<String, Object> updateParam = new HashMap<>();
         System.out.println("컨트롤러 updateList");
         updateParam.put("title", req.get("title"));
-        updateParam.put("modId", req.get("regId"));
+        updateParam.put("regId", req.get("regId"));
         updateParam.put("content", req.get("content"));
         System.out.println(req);
-        System.out.println(req.get("modId"));
+        System.out.println(req.get("regId"));
         boardService.updateList(updateParam);
     }
 

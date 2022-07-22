@@ -32,6 +32,7 @@ const handleSubmit = (e) => {
       })
       .then((response) => {
         alert("게시글 작성 성공");
+        window.location.href = "http://localhost:3000/boardList";
         console.log(response);
       })
       .catch((error) => {
