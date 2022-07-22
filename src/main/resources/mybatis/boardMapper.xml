@@ -7,6 +7,8 @@
       seq, title, content, regId, regDate
     FROM 
       boardList
+    WHERE 
+      delYn = 'N'
     ORDER BY 
       regDate DESC
   </select>
@@ -34,6 +36,15 @@
       title = #{title}, content = #{content}, regId = #{regId}, modDate = NOW()
     WHERE 
       seq  = #{seq}
+  </update>
+
+  <update id="deleteList">
+    UPDATE 
+      boardList
+    SET 
+      delYn = 'Y'
+    WHERE 
+      seq = #{seq}
   </update>
 
  </mapper>

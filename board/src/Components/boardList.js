@@ -42,11 +42,25 @@ const boardList = () => {
   }, []);
 
   // 삭제 버튼 클릭시 boardDelete
-  const boardDelete = (v, e) => {
-    // onclick 이벤트가 겹쳐서 삭제 버튼 클릭시 그 이벤트만 실행 되게 해놓음
+  const boardDelete = (seq, e) => {
+    // onclick 이벤트가 겹쳐서 삭제 버튼 클릭시 삭제 버튼 이벤트만 실행
     e.stopPropagation();
-    console.log("삭제" + v)
-    
+    console.log(seq);
+    axios
+      .post("http://localhost:8088/board/deleteList", seq, {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        alert("게시글 삭제 성공");
+        location.reload();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
    };
 
   return (

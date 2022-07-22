@@ -37,6 +37,12 @@ public class boardService {
         boardMapper.updateList(updateParam);
     }
 
+    // 게시글 삭제
+    public void deleteList(String seq) {
+        System.out.println("deleteList service");
+        boardMapper.deleteList(seq);
+    }
+
     // // 게시글 수정 전 상세 내용
     // public List<boardVo> beforeList(String seq) {
     // System.out.println("beforeList service");

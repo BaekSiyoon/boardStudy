@@ -22,6 +22,9 @@ public interface boardMapper {
   // 게시글 수정
   public void updateList(Map<String, Object> updateParam);
 
+  // 게시글 삭제
+  public void deleteList(String seq);
+
   // 게시글 수정 전 상세 내용
   // public List<boardVo> beforeList(String seq);
 

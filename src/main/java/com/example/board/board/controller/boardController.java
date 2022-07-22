@@ -64,15 +64,11 @@ public class boardController {
         boardService.updateList(updateParam);
     }
 
-    // 게시글 수정
-    // @PostMapping("/updateList/{seq}")
-    // public List<boardVo> updateList(@RequestBody String seq) {
-    // // HashMap<String, Object> updateParam = new HashMap<>();
-    // System.out.println("컨트롤러 updateList" + seq);
-    // // 수정 페이지 처음 들어 갔을때
-    // boardService.beforeList(seq);
-    // System.out.println("컨트롤러 updateList" + seq);
-    // // boardService.updateList(updateParam);
-    // return boardService.beforeList(seq);
-    // }
+    // 게시글 삭제
+    @PostMapping("/deleteList")
+    public void deleteList(@RequestBody String seq) {
+        System.out.println("컨트롤러 deleteList" + seq);
+        boardService.deleteList(seq);
+    }
+
 }
