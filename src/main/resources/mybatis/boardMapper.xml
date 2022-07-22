@@ -15,7 +15,7 @@
     INSERT INTO 
       boardList(title ,content ,password ,regId, regDate)
     VALUES 
-      (#{title}, #{content}, #{password}, #{regId}, NOW());
+      (#{title}, #{content}, #{password}, #{regId}, NOW())
   </insert>
 
   <select id="detailList" resultType="boardVo">
@@ -27,13 +27,13 @@
       seq = #{seq}
   </select>
 
-  <update id="updateList">
-    UPDATE 
-      boardList
+  <update id="updateList" parameterType="map">
+    UPDATE
+      boardList 
     SET 
-      title = #{title}, content = #{content}, modId = #{regId}, modDate = NOW()
+      title = #{title}, content = #{content}, regId = #{regId}, modDate = NOW()
     WHERE 
-      seq = #{seq}
+      seq  = #{seq}
   </update>
 
  </mapper>

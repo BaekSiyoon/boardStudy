@@ -46,8 +46,7 @@ const boardUpdate = ({match}) => {
     }
 
     // 게시글 수정하기 클릭 
-    const boardUpdateList = (e) => {
-      console.log("alert" + JSON.stringify(boardValues, null, 2));
+    const boardUpdateList = () => {
         // e.preventDefault();
         axios
           .post("http://localhost:8088/board/updateList", boardValues, {

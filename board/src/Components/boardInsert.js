@@ -20,7 +20,7 @@ const boardInsert = () => {
   };
 
 // 게시글 작성 클릭시
-const handleSubmit = (e) => {
+const handleSubmit = () => {
   alert(JSON.stringify(values, null, 2));
     // e.preventDefault();
     axios

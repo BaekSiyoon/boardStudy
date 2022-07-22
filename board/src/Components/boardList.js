@@ -52,6 +52,7 @@ const boardList = () => {
             <th scope="col">내용</th>
             <th scope="col">작성자</th>
             <th scope="col">날짜</th>
+            <th scope="col">삭제</th>
           </tr>
         </thead>
         <tbody>
@@ -62,6 +63,11 @@ const boardList = () => {
               <td> {v.content} </td>
               <td> {v.regId} </td>
               <td> {v.regDate} </td>
+              <td> <button class="favorite styled"
+                    type="button">
+                     삭제
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

@@ -56,6 +56,7 @@ public class boardController {
     public void updateList(@RequestBody Map<String, Object> req) {
         Map<String, Object> updateParam = new HashMap<>();
         System.out.println("컨트롤러 updateList");
+        updateParam.put("seq", req.get("seq"));
         updateParam.put("title", req.get("title"));
         updateParam.put("regId", req.get("regId"));
         updateParam.put("content", req.get("content"));
