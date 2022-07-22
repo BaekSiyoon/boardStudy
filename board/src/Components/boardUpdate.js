@@ -47,6 +47,7 @@ const boardUpdate = ({match}) => {
 
     // 게시글 수정하기 클릭 
     const boardUpdateList = () => {
+      console.log("로그")
         // e.preventDefault();
         axios
           .post("http://localhost:8088/board/updateList", boardValues, {
