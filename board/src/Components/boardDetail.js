@@ -54,19 +54,19 @@ const boardDetail = ({match}) => {
             <th scope="col">작성자</th>
             <th scope="col">날짜</th>
           </tr>
-        </thead>
-        <tbody>
-          {Object.values(detailValues).map((v, i) => (
-            <tr key={i} value={v.seq} >
-              <td> {v.seq} </td>
-              <td> {v.title} </td>
-              <td> {v.content} </td>
-              <td> {v.regId} </td>
-              <td> {v.regDate} </td>
-            </tr>
-          ))}
-        </tbody>
-        </table>
+      </thead>
+      <tbody>
+        {Object.values(detailValues).map((v, i) => (
+          <tr key={i} value={v.seq} >
+             <td> {v.seq} </td>
+            <td> {v.title} </td>
+            <td> {v.content} </td>
+            <td> {v.regId} </td>
+            <td> {v.regDate} </td>
+          </tr>
+        ))}
+      </tbody>
+      </table>
         <button onClick={boardListPage}>
             목록
         </button>

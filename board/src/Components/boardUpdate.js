@@ -13,15 +13,7 @@ const boardUpdate = ({match}) => {
     content: "",
     regDate: "",
   });
-
-  const handleChange = (e) => {
-    console.log(e);
-    setBoardValues({
-      //...boardValues,
-      [e.target.name]: e.target.value,
-    });
-  };
-
+  
   useEffect(() => {
     axios
       .post(`http://localhost:8088/board/updateList/${match.params.seq}`, match.params.seq, {
@@ -37,13 +29,24 @@ const boardUpdate = ({match}) => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+    }, []);
+    
+  // 게시글 data 수정 
+  const handleChange = (e) => {
+    console.log(e);
+    // 우선 e.target 에서 name 과 value 를 추출
+    const { value, name } = e.target; 
+    setBoardValues({
+      ...boardValues,
+      // name 키를 가진 값을 value 로 설정
+      [name]: value
+      });
+  };
 
-
-// 게시글 목록 페이지로 이동
-const boardListPage = () => {
-  window.location.href = "/boardList";
-}
+  // 게시글 목록 페이지로 이동
+  const boardListPage = () => {
+    window.location.href = "/boardList";
+  }
 
 return (
     <div className="boardUpdateDiv">
@@ -52,20 +55,20 @@ return (
         <form>
           <div> 제목 </div>
           {Object.values(boardValues).map((v) => (
-          <input
-            type="text"
-            name="title"
-            defaultValue={v.title}
-            onChange={handleChange}
-           />
+            <input
+              type="text"
+              name="title"
+              defaultValue={v.title}
+              onChange={handleChange}
+            />
           ))}
           <div> 작성자 </div>
           {Object.values(boardValues).map((v) => (
-          <input
-            type="text"
-            name="id"
-            defaultValue={v.regId}
-            onChange={handleChange}
+            <input
+              type="text"
+              name="id"
+              defaultValue={v.regId}
+              onChange={handleChange}
             />
           ))}
           <div> 내용 </div>
