@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./board.css";
 
 // 게시글 수정 페이지
@@ -12,6 +13,14 @@ const boardUpdate = ({match}) => {
     content: "",
     regDate: "",
   });
+
+  const handleChange = (e) => {
+    console.log(e);
+    setBoardValues({
+      //...boardValues,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   useEffect(() => {
     axios
@@ -36,47 +45,55 @@ const boardListPage = () => {
   window.location.href = "/boardList";
 }
 
-  return (
+return (
     <div className="boardUpdateDiv">
       <h1>수정 페이지</h1>
       <div>
         <form>
           <div> 제목 </div>
+          {Object.values(boardValues).map((v) => (
           <input
             type="text"
             name="title"
-            //value={values.title}
-            //onChange={handleChange}
-          />
+            defaultValue={v.title}
+            onChange={handleChange}
+           />
+          ))}
           <div> 작성자 </div>
+          {Object.values(boardValues).map((v) => (
           <input
             type="text"
             name="id"
-            //value={values.id}
-            //onChange={handleChange}
-          />
-          <div> 비밀번호 </div>
-          <input
-            type="text"
-            name="password"
-            //value={values.password}
-            //onChange={handleChange}
-          />
+            defaultValue={v.regId}
+            onChange={handleChange}
+            />
+          ))}
           <div> 내용 </div>
-          <input
-            type="text"
-            name="content"
-            //value={values.content}
-           //onChange={handleChange}
-          />
-          <br />
+          {Object.values(boardValues).map((v) => (
+            <input
+              type="text"
+              name="content"
+              defaultValue={v.content}
+              onChange={handleChange}
+            />
+          ))}
+          <div> 날짜 </div>
+          {Object.values(boardValues).map((v) => (
+            <input
+              type="text"
+              name="regDate"
+              defaultValue={v.regDate}
+              onChange={handleChange}
+            />
+          ))}
+        <br />
           <button type="submit">
             작성하기
           </button>
         </form>
-        <button onClick={boardListPage}>
+          <button onClick={boardListPage}>
             목록
-        </button>
+          </button>
       </div>
     </div>
   );

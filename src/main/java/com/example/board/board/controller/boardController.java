@@ -54,15 +54,14 @@ public class boardController {
     }
 
     // 게시글 수정
-    @GetMapping("/updateList")
-    public void updateList() {
-        HashMap<String, Object> updateParam = new HashMap<>();
-        System.out.println("컨트롤러 updateList");
-        updateParam.put("seq", 6);
-        System.out.println(updateParam.get("seq"));
-        updateParam.put("title", "제목 수정");
-        updateParam.put("content", "내용 수정");
-        updateParam.put("modId", "아이디 수정");
-        boardService.updateList(updateParam);
+    @PostMapping("/updateList/{seq}")
+    public List<boardVo> updateList(@RequestBody String seq) {
+        // HashMap<String, Object> updateParam = new HashMap<>();
+        System.out.println("컨트롤러 updateList" + seq);
+        // 수정 페이지 처음 들어 갔을때
+        boardService.beforeList(seq);
+        System.out.println("컨트롤러 updateList" + seq);
+        // boardService.updateList(updateParam);
+        return boardService.beforeList(seq);
     }
 }

@@ -19,6 +19,10 @@ public interface boardMapper {
   // 상세 게시글 조회
   public List<boardVo> detailList(String seq);
 
+  // 게시글 수정 전 상세 내용
+  public List<boardVo> beforeList(String seq);
+
   // 게시글 수정
   public void updateList(Map<String, Object> updateParam);
+
 }
