@@ -9,7 +9,7 @@ const boardUpdate = ({match}) => {
   const [boardValues, setBoardValues] = useState({
     seq: "",
     title: "",
-    id: "",
+    regId: "",
     content: "",
     regDate: "",
   });
@@ -23,25 +23,28 @@ const boardUpdate = ({match}) => {
         },
       })
       .then((res) => {
-        setBoardValues(res.data);
-        console.log(res.data);
+        setBoardValues(res.data[0]);
+        console.log("res" + res);
+        console.log("JSON.stringify(res.data)" + JSON.stringify(res.data[0]));
       })
       .catch((error) => {
         console.log(error);
       });
     }, []);
     
-  // 게시글 data 수정 
-  const handleChange = (e) => {
-    console.log(e);
-    // 우선 e.target 에서 name 과 value 를 추출
-    const { value, name } = e.target; 
-    setBoardValues({
-      ...boardValues,
-      // name 키를 가진 값을 value 로 설정
-      [name]: value
+    // 게시글 data 수정 
+    const handleChange = (e) => {
+      console.log(e);
+      console.log("e" + e);
+      console.log("e.target.name" + e.target.name);
+      console.log("e.target.value" + e.target.value);
+      setBoardValues({
+        ...boardValues,
+        [e.target.name]: e.target.value,
       });
-  };
+    };
+  
+
 
   // 게시글 목록 페이지로 이동
   const boardListPage = () => {
@@ -49,46 +52,40 @@ const boardUpdate = ({match}) => {
   }
 
 return (
-    <div className="boardUpdateDiv">
-      <h1>수정 페이지</h1>
+  <div className="boardUpdateDiv">
+    <h1>수정페이지 {match.params.seq}</h1>
       <div>
         <form>
-          <div> 제목 </div>
-          {Object.values(boardValues).map((v) => (
+          <div>
+            <div> 제목 </div>
             <input
               type="text"
               name="title"
-              defaultValue={v.title}
-              onChange={handleChange}
-            />
-          ))}
-          <div> 작성자 </div>
-          {Object.values(boardValues).map((v) => (
-            <input
+              value={boardValues.title || ""}
+              onChange={(e) => {handleChange(e)}}
+              />
+              <div> 작성자 </div>
+              <input
               type="text"
-              name="id"
-              defaultValue={v.regId}
-              onChange={handleChange}
-            />
-          ))}
-          <div> 내용 </div>
-          {Object.values(boardValues).map((v) => (
-            <input
+              name="regId"
+              value={boardValues.regId || ""} 
+              onChange={(e) => {handleChange(e)}}
+              />
+              <div> 내용 </div>
+              <input
               type="text"
               name="content"
-              defaultValue={v.content}
-              onChange={handleChange}
-            />
-          ))}
-          <div> 날짜 </div>
-          {Object.values(boardValues).map((v) => (
-            <input
+              value={boardValues.content  || ""}
+              onChange={(e) => {handleChange(e)}}
+              />
+              <div> 날짜 </div>
+              <input
               type="text"
               name="regDate"
-              defaultValue={v.regDate}
-              onChange={handleChange}
-            />
-          ))}
+              value={boardValues.regDate  || ""}
+              readonly
+              />
+              </div>
         <br />
           <button type="submit">
             작성하기

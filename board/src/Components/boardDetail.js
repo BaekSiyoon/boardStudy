@@ -44,7 +44,7 @@ const boardDetail = ({match}) => {
 
   return (
     <div className="boardDetailDiv">
-      <h1>boardDetail {match.params.seq}</h1>
+      <h1>상세페이지 {match.params.seq}</h1>
       <table>
       <thead>
           <tr>
