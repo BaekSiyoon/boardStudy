@@ -42,8 +42,11 @@ const boardList = () => {
   }, []);
 
   // 삭제 버튼 클릭시 boardDelete
-  const boardDelete = () => {
-    console.log("삭제")
+  const boardDelete = (v, e) => {
+    // onclick 이벤트가 겹쳐서 삭제 버튼 클릭시 그 이벤트만 실행 되게 해놓음
+    e.stopPropagation();
+    console.log("삭제" + v)
+    
    };
 
   return (
@@ -68,7 +71,7 @@ const boardList = () => {
               <td> {v.content} </td>
               <td> {v.regId} </td>
               <td> {v.regDate} </td>
-              <td> <button class="favorite styled" type="button" onClick={boardDelete}> 삭제 </button> </td>
+              <td> <button className="favorite styled" type="button" onClick={(e)=>{boardDelete(v.seq, e)}}> 삭제 </button> </td>
             </tr>
           ))}
         </tbody>
