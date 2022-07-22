@@ -41,6 +41,11 @@ const boardList = () => {
       });
   }, []);
 
+  // 삭제 버튼 클릭시 boardDelete
+  const boardDelete = () => {
+    console.log("삭제")
+   };
+
   return (
     <div className="boardListDiv">
       <button onClick={userWriting}>작성</button>
@@ -63,11 +68,7 @@ const boardList = () => {
               <td> {v.content} </td>
               <td> {v.regId} </td>
               <td> {v.regDate} </td>
-              <td> <button class="favorite styled"
-                    type="button">
-                     삭제
-                </button>
-              </td>
+              <td> <button class="favorite styled" type="button" onClick={boardDelete}> 삭제 </button> </td>
             </tr>
           ))}
         </tbody>

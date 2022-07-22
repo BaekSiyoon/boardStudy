@@ -60,7 +60,6 @@ public class boardController {
         updateParam.put("title", req.get("title"));
         updateParam.put("regId", req.get("regId"));
         updateParam.put("content", req.get("content"));
-        System.out.println(req);
         System.out.println(req.get("regId"));
         boardService.updateList(updateParam);
     }
