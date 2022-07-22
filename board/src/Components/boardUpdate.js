@@ -45,7 +45,6 @@ const boardUpdate = ({match}) => {
     };
   
 
-
   // 게시글 목록 페이지로 이동
   const boardListPage = () => {
     window.location.href = "/boardList";
