@@ -69,6 +69,10 @@ const boardList = () => {
 
   return (
     <div className="boardListDiv">
+      <div className="searchDiv">
+        <input type="text" placeholder="제목을 검색하세요." />
+        <button className="searchButton">검색</button>
+      </div>
       <button onClick={userWriting}>작성</button>
       <table>
         <thead>
@@ -96,7 +100,6 @@ const boardList = () => {
               <td> {v.regId} </td>
               <td> {v.regDate} </td>
               <td>
-                {" "}
                 <button
                   className="favorite styled"
                   type="button"
@@ -104,9 +107,8 @@ const boardList = () => {
                     boardDelete(v.seq, e);
                   }}
                 >
-                  {" "}
-                  삭제{" "}
-                </button>{" "}
+                  삭제
+                </button>
               </td>
             </tr>
           ))}

@@ -74,7 +74,7 @@ const boardInsert = () => {
           />
           <div> 비밀번호 </div>
           <input
-            type="text"
+            type="password"
             name="password"
             value={values.password}
             onChange={handleChange}
