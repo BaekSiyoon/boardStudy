@@ -47,4 +47,13 @@
       seq = #{seq}
   </update>
 
+  <select id="titleSearchList" resultType="boardVo">
+    SELECT
+      seq, title, content, regId, regDate
+    FROM
+      boardList
+    WHERE
+      title = #{title}
+  </select>
+
 </mapper>

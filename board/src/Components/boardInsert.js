@@ -38,10 +38,10 @@ const boardInsert = () => {
             "Content-Type": "application/json",
           },
         })
-        .then((response) => {
+        .then((res) => {
           alert("게시글 작성 성공");
           window.location.href = "http://localhost:3000/boardList";
-          console.log(response);
+          console.log(res);
         })
         .catch((error) => {
           console.log(error);

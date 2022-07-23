@@ -25,6 +25,9 @@ public interface boardMapper {
   // 게시글 삭제
   public void deleteList(String seq);
 
+  // 제목 으로 게시글 조회
+  public List<boardVo> titleSearchList(String title);
+
   // 게시글 수정 전 상세 내용
   // public List<boardVo> beforeList(String seq);
 

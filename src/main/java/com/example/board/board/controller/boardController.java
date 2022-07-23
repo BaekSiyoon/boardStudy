@@ -1,5 +1,6 @@
 package com.example.board.board.controller;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +48,7 @@ public class boardController {
     // 상세 게시글 조회 & 수정 클릭 했을때 input에 보여지는 조회
     @PostMapping("/detailList/{seq}")
     public List<boardVo> detailList(@RequestBody String seq) {
-        System.out.println("컨트롤러 detailList" + seq);
+        System.out.println("컨트롤러 detailList = " + seq);
         return boardService.detailList(seq);
     }
 
@@ -68,8 +69,16 @@ public class boardController {
     // 게시글 삭제
     @PostMapping("/deleteList")
     public void deleteList(@RequestBody String seq) {
-        System.out.println("컨트롤러 deleteList" + seq);
+        System.out.println("컨트롤러 deleteList = " + seq);
         boardService.deleteList(seq);
+    }
+
+    // 제목 으로 게시글 조회
+    @PostMapping("/titleSearchList")
+    public List<boardVo> titleSearchList(@RequestBody String titleinput) {
+        String title = titleinput.replaceAll("\"", "");
+        System.out.println("컨트롤러 titleSearchList = " + title);
+        return boardService.titleSearchList(title);
     }
 
 }

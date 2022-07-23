@@ -43,6 +43,12 @@ public class boardService {
         boardMapper.deleteList(seq);
     }
 
+    // 제목 으로 게시글 조회
+    public List<boardVo> titleSearchList(String title) {
+        System.out.println("titleSearchList service");
+        return boardMapper.titleSearchList(title);
+    }
+
     // // 게시글 수정 전 상세 내용
     // public List<boardVo> beforeList(String seq) {
     // System.out.println("beforeList service");

@@ -10,6 +10,7 @@ const boardList = () => {
     content: "",
     regDate: "",
   });
+  const [titleinput, setTitleSearch] = useState("");
 
   // 클릭시 작성 페이지로 이동
   const userWriting = () => {
@@ -54,8 +55,8 @@ const boardList = () => {
             "Content-Type": "application/json",
           },
         })
-        .then((response) => {
-          console.log(response);
+        .then((res) => {
+          console.log(res);
           alert("게시글 삭제 성공");
           location.reload();
         })
@@ -67,11 +68,49 @@ const boardList = () => {
     }
   };
 
+  const handleChange = (e) => {
+    console.log(e);
+    setTitleSearch(e.target.value);
+  };
+
+  // 제목 검색
+  const titleSearch = () => {
+    axios
+      .post("http://localhost:8088/board/titleSearchList", titleinput, {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      })
+      .then((res) => {
+        if (res.data.length != 0) {
+          setValues(res.data);
+          console.log(res);
+          alert("제목 검색 성공");
+        } else {
+          alert("해당 제목의 게시글이 없습니다.");
+          location.reload();
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="boardListDiv">
       <div className="searchDiv">
-        <input type="text" placeholder="제목을 검색하세요." />
-        <button className="searchButton">검색</button>
+        <input
+          type="text"
+          name="titleSearch"
+          placeholder="제목을 검색하세요."
+          onChange={(e) => {
+            handleChange(e);
+          }}
+        />
+        <button className="searchButton" onClick={titleSearch}>
+          검색
+        </button>
       </div>
       <button onClick={userWriting}>작성</button>
       <table>
