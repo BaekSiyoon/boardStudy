@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.board.board.mapper.boardMapper">
 
   <select id="list" resultType="boardVo">
@@ -22,7 +22,7 @@
 
   <select id="detailList" resultType="boardVo">
     SELECT
-      seq, title, content, regId, regDate
+      seq, title, content, regId, regDate, password
     FROM
       boardList
     WHERE
@@ -33,7 +33,7 @@
     UPDATE
       boardList 
     SET 
-      title = #{title}, content = #{content}, regId = #{regId}, modDate = NOW()
+      title = #{title}, content = #{content}, regId = #{regId}, password = #{password}, modDate = NOW()
     WHERE 
       seq  = #{seq}
   </update>
@@ -47,4 +47,4 @@
       seq = #{seq}
   </update>
 
- </mapper>
+</mapper>

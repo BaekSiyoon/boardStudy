@@ -59,6 +59,7 @@ public class boardController {
         updateParam.put("seq", req.get("seq"));
         updateParam.put("title", req.get("title"));
         updateParam.put("regId", req.get("regId"));
+        updateParam.put("password", req.get("password"));
         updateParam.put("content", req.get("content"));
         System.out.println(req.get("regId"));
         boardService.updateList(updateParam);

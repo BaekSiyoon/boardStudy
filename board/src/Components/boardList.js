@@ -18,8 +18,8 @@ const boardList = () => {
 
   // 클릭시 게시글 상세 페이지로 이동
   const userDetailClick = (seq, e) => {
-   window.location.href = `/boardDetail/${seq}`; 
-   console.log(`/boardDetail${seq}`);
+    window.location.href = `/boardDetail/${seq}`;
+    console.log(`/boardDetail${seq}`);
   };
 
   // useEffect는 첫번째 인자로 callBack함수를 받는다.
@@ -45,23 +45,27 @@ const boardList = () => {
   const boardDelete = (seq, e) => {
     // onclick 이벤트가 겹쳐서 삭제 버튼 클릭시 삭제 버튼 이벤트만 실행
     e.stopPropagation();
-    console.log(seq);
-    axios
-      .post("http://localhost:8088/board/deleteList", seq, {
+    if (confirm("정말 삭제하시겠습니까?")) {
+      console.log(seq);
+      axios
+        .post("http://localhost:8088/board/deleteList", seq, {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-        },
-      })
-      .then((response) => {
-        console.log(response);
-        alert("게시글 삭제 성공");
-        location.reload();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-   };
+          },
+        })
+        .then((response) => {
+          console.log(response);
+          alert("게시글 삭제 성공");
+          location.reload();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      alert("취소를 누르셨습니다.");
+    }
+  };
 
   return (
     <div className="boardListDiv">
@@ -79,13 +83,31 @@ const boardList = () => {
         </thead>
         <tbody>
           {Object.values(values).map((v, i) => (
-            <tr key={i} value={v.seq} onClick={(e)=>{userDetailClick(v.seq, e)}}>
+            <tr
+              key={i}
+              value={v.seq}
+              onClick={(e) => {
+                userDetailClick(v.seq, e);
+              }}
+            >
               <td> {v.seq} </td>
               <td> {v.title} </td>
               <td> {v.content} </td>
               <td> {v.regId} </td>
               <td> {v.regDate} </td>
-              <td> <button className="favorite styled" type="button" onClick={(e)=>{boardDelete(v.seq, e)}}> 삭제 </button> </td>
+              <td>
+                {" "}
+                <button
+                  className="favorite styled"
+                  type="button"
+                  onClick={(e) => {
+                    boardDelete(v.seq, e);
+                  }}
+                >
+                  {" "}
+                  삭제{" "}
+                </button>{" "}
+              </td>
             </tr>
           ))}
         </tbody>
